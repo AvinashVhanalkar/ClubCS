@@ -1,0 +1,988 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 40px;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px  #669999; 
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      background-image: url("/uploads/media/default/0001/02/c1504011491c4e04e5158b63a27a4ea654b03ed1.jpeg");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #669999;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      .week {
+      display:flex;
+      justfiy-content:space-between;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color:  #a3c2c2;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid  #669999;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid  #669999;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background:  #669999;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #a3c2c2;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+	  <!-- pool-->
+	  body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --primary-color: #435fda;
+  --secondary-color: #d8415c;
+  --body-font-size: 16px;
+  --line-height: 1.5;
+  --content-width: 480px;
+  --background-color: #fff;
+  --background-color-secondary: #f8f8f9;
+  --text-color: #060914;
+  --text-color--muted: #71737f;
+  --line-color: #ededef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #657bdb;
+    --primary-color--translucent: rgba(85, 106, 195, 0.3);
+    --secondary-color: #d93d59;
+    --background-color:white;
+    --background-color-secondary: #0f1424;
+    --text-color: #e4e4e7;
+    --text-color--muted: #838690;
+    --line-color: #303341;
+  }
+}
+
+html {
+  font-size: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  font-family: "Geomanist", sans-serif;
+  font-size: var(--body-font-size);
+  line-height: var(--line-height);
+  padding: .5em .5em 2em .5em;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: var(--content-width);
+  margin: calc(var(--line-height) *.5em) auto 0 auto;
+}
+
+.results {
+  margin-top: .5em;
+  text-align: center;
+}
+
+.results > div {
+  margin-bottom: .5em;
+}
+
+@media (min-width: 440px) {
+  :root {
+    --body-font-size: 18px;
+    --line-height: 1.5;
+  }
+
+  .results {
+    margin: 2em 1em 0 2em;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1em;
+  }
+  .results > div {
+    margin-bottom: 0;
+  }
+}
+
+.choose-gender {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 2em;
+}
+
+.segmented-control {
+  flex: 1;
+  text-align: center;
+  line-height: 2em;
+  border: 1px solid var(--line-color);
+}
+
+.segmented-control:first-child {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.segmented-control:last-child {
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.results {
+  color: var(--text-color--muted);
+}
+
+.results span {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* The crazy stuff that needs to be here for the custom input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+  transition: all 0.265ms ease-out;
+}
+
+input[type="range"]:not(:last-of-type) {
+  margin-top: 0;
+  margin-bottom: 2.5em;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: var(--line-color);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 0 0 8px 1px var(--secondary-color),
+    0 0 16px 4px var(--background-color);
+  border: 3px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: var(--secondary-color);
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.segmented-control input[type="radio"] + label {
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  color: var(--text-color--muted);
+}
+
+.segmented-control input[type="radio"]:checked + label {
+  background-color: var(--line-color);
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: var(--text-color);
+}
+
+.segmented-control input[type="radio"]:focus + label {
+  border: 1px solid var(--secondary-color);
+}
+
+.segmented-control:first-child input[type="radio"]:checked + label {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.segmented-control:last-child input[type="radio"]:checked + label {
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: var(--line-color);
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0 0 8px 1px var(--secondary-color),
+    0 0 16px 4px var(--background-color);
+  border: 3px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+	  
+	  
+	  
+	  
+	  <!-- end pool-->
+    </style>
+  
+<meta charset="utf-8">
+    <title>The CLUB SC</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Workout</title>
+
+    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+  </head>
+  <body>
+<!--header-->
+<header id="site-header" class="fixed-top">
+  <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+	   <a class="navbar-brand" href="#index.html">
+      <img src="assets\images\favi2.jpg" alt="Your logo" title="Your logo" style="height:45px;width:45px" style="margin-right:10px"/>
+  </a>
+          <h1> <a class="navbar-brand" href="index.html">
+                 CLUB SC
+              </a></h1>  
+ 
+          <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+              data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+              <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item @@about__active">
+                      <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item @@services__active">
+                      <a class="nav-link" href="services.html">Services</a>
+                  </li>
+				   <li class="nav-item @@client__active">
+                      <a class="nav-link" href="client.html">Client</a>
+                  </li>
+				  <li class="nav-item @@classes__active">
+                      <a class="nav-link" href="classes.html">Classes</a>
+                  </li>
+                  <li class="nav-item @@join_us__active">
+                      <a class="nav-link" href="join_us.html">Join_us</a>
+                  </li>
+				  <li class="nav-item @@contact__active">
+                      <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                  <!--/search-right-->
+                  <div class="search-right">
+                      <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+                      <!-- search popup -->
+                      <div id="search" class="pop-overlay">
+                          <div class="popup">
+  
+                              <form action="#" method="GET" class="search-box">
+                                  <input type="search" placeholder="Enter Keyword" name="search" required="required"
+                                      autofocus="">
+                                  <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
+                              </form>
+  
+                          </div>
+                          <a class="close" href="#close">×</a>
+                      </div>
+                      <!-- /search popup -->
+                  </div>
+                  <!--//search-right-->
+              </ul>
+          </div>
+          <!-- toggle switch for light and dark theme -->
+          <div class="mobile-position">
+              <nav class="navigation">
+                  <div class="theme-switch-wrapper">
+                      <label class="theme-switch" for="checkbox">
+                          <input type="checkbox" id="checkbox">
+                          <div class="mode-container">
+                              <i class="gg-sun"></i>
+                              <i class="gg-moon"></i>
+                          </div>
+                      </label>
+                  </div>
+              </nav>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
+      </nav>
+  </div>
+</header>
+<section class="w3l-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-contact py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h3 class="title-big text-center">JOIN US</h3>
+            <p class="mt-3">Join the Best GYM in Your Town!</p>
+        </div>
+    </div>
+</section>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	
+
+  <br>
+  <br>
+  <br>
+  <div id="bmr-calculator" class="wrapper">
+  <div class="calculator">
+    <div class="choose-gender">
+    <div class="segmented-control"><input id="calc-gender-male" type="radio" name="gender" value="male" checked=""><label for="calc-gender-male">Male</label></div>
+      <div class="segmented-control">
+    <input id="calc-gender-female" type="radio" name="gender" value="female"><label for="calc-gender-female">Female</label></div>
+    </div>
+    <label for="calc-age" id="calc-age_value">Age: 25</label>
+    <input id="calc-age" type="range" value="25" min="13" max="100">
+    <label for="calc-height" id="calc-height_value">Height: 180cm</label>
+    <input id="calc-height" type="range" value="180" min="80" max="250">
+    <label for="calc-weight" id="calc-weight_value">Weight: 80kg</label>
+    <input id="calc-weight" type="range" value="80" min="40" max="200">
+    <label for="calc-walking" id="calc-walking_value">Walking: 2 hours per week</label>
+    <input id="calc-walking" type="range" value="2" min="0" max="50">
+    <label for="calc-cardio" id="calc-cardio_value">Cardio: 1 hour per week</label>
+    <input id="calc-cardio" type="range" value="1" min="0" max="50">
+  </div>
+  <div class="results">
+    <div id="calc-target-gain">
+      To Gain Weight:<br>
+      <span>2700 calories</span>
+    </div>
+    <div id="calc-target-maintain">
+      To Maintain:<br>
+      <span>2400 calories</span>
+    </div>
+    <div id="calc-target-lose">
+      To Lose Weight:<br>
+      <span>1900 calories</span>
+    </div>
+  </div>
+  </div>
+  <!-- form-->
+  <br>
+  <br>
+  <div class="cont">
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+          <h1>New Member Registration</h1>
+        </div>
+        <div class="colums">
+          <div class="item">
+            <label for="fname"> First Name<span>*</span></label>
+            <input id="fname" type="text" name="fname" required/>
+          </div>
+          <div class="item">
+            <label for="lname"> Last Name<span>*</span></label>
+            <input id="lname" type="text" name="lname" required/>
+          </div>
+          <div class="item">
+            <label for="address1">Address 1<span>*</span></label>
+            <input id="address1" type="text"   name="address1" required/>
+          </div>
+          <div class="item">
+            <label for="address2">Address 2<span>*</span></label>
+            <input id="address2" type="text"   name="address2" required/>
+          </div>
+          <div class="item">
+            <label for="state">State<span>*</span></label>
+            <input id="state" type="text"   name="state" required/>
+          </div>
+          <div class="item">
+            <label for="zip">Zip/Postal Code<span>*</span></label>
+            <input id="zip" type="text" name="zip" required/>
+          </div>
+          <div class="item">
+            <label for="city">City<span>*</span></label>
+            <input id="city" type="text"   name="city" required/>
+          </div>
+          <div class="item">
+            <label for="eaddress">Email Address<span>*</span></label>
+            <input id="eaddress" type="text"   name="eaddress" required/>
+          </div>
+          <div class="item">
+            <label for="phone">Phone<span>*</span></label>
+            <input id="phone" type="tel"   name="phone" required/>
+          </div>
+        </div>
+       
+        <div class="question">
+          <label>Preferred way to contact </label>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="none" id="radio_4" name="contact"/>
+              <label for="radio_4" class="radio"><span>Phone</span></label>
+            </div>
+            <div>
+              <input  type="radio" value="none" id="radio_5" name="contact"/>
+              <label for="radio_5" class="radio"><span>Email</span></label>
+            </div>
+            <div>
+              <input  type="radio" value="none" id="radio_6" name="contact"/>
+              <label for="radio_6" class="radio"><span>Any</span></label>
+            </div>
+          </div>
+        </div>
+        <h2>Terms and Conditions</h2>
+        <input type="checkbox" name="checkbox1">
+        <label>You consent to receive communications from us electronically. We will communicate with you by e-mail or phone. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</label>
+        <div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
+    </div>
+	<section class="w3l-footers-20">
+  <div class="footers20">
+     <div class="container">
+       <div class="footers20-content">
+         <div class="d-grid grid-col-4 grids-content">
+           <div class="column">
+             <h4>Address</h4>
+             <p class="contact-para3">Bahirji Apartment Punya Ratna, 6th Ln, S.T.Colony, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416001</p>
+             <a href="https://www.google.com/maps/place/Club+SC/@16.6953167,74.24301,17.91z/data=!4m6!3m5!1s0x3bc101d77e9b7421:0x2bdcd5edf41c1e7c!8m2!3d16.6954538!4d74.2440518!16s%2Fg%2F11t2tfnrmq?entry=ttu">
+               <p class="contact-map mt-2"><span class="lnr lnr-map-marker"></span> Find us on map</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Get in touch</h4>
+             <p>Join the Best GYM in Your Town!</p>
+             <a href="tel:919766997880">
+               <p class="contact-phone mt-2"><span class="lnr lnr-phone-handset"></span>9766997880
+               </p>
+             </a>
+             <a href="mailto:sourabh.chavan499@gmail.com">
+               <p class="contact-mail mt-1"><span class="lnr lnr-envelope"></span>sourabh.chavan499@gmail.com</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Opening hours</h4>
+             <p>We are working on</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Mon - Fri</strong> : 5am to 10pm</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Sat - Sun</strong> : 5am to 9pm
+             </p>
+           </div>
+         </div>
+         <div class="d-grid grid-col-3 grids-content1 bottom-border">
+           <div class="columns copyright-grid align-self">
+             <p class="copy-footer-29">© 2020 Workout. All rights reserved | Designed by <a
+                 href="https://w3layouts.com">W3layouts</a></p>
+           </div>
+           <div class="columns text-lg-right social-grid">
+             <ul class="social">
+               <li><a href="#url"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+               <li><a href="#url"><span class="fa fa-instagram" aria-hidden="true"></span></a></li>
+               <li><a href="#url"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- move top -->
+   <button onclick="topFunction()" id="movetop" title="Go to top">
+     &#10548;
+   </button>
+   <script>
+     // When the user scrolls down 20px from the top of the document, show the button
+     window.onscroll = function () {
+       scrollFunction()
+     };
+
+     function scrollFunction() {
+       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+         document.getElementById("movetop").style.display = "block";
+       } else {
+         document.getElementById("movetop").style.display = "none";
+       }
+     }
+
+     // When the user clicks on the button, scroll to the top of the document
+     function topFunction() {
+       document.body.scrollTop = 0;
+       document.documentElement.scrollTop = 0;
+     }
+   </script>
+   <!-- /move top -->
+ </section>
+	
+	
+	    <script src="assets\js\poll.js"> </script>
+<section class="w3l-footers-20">
+   <div class="footers20">
+     <div class="container">
+       <div class="footers20-content">
+         <div class="d-grid grid-col-4 grids-content">
+           <div class="column">
+             <h4>Address</h4>
+             <p class="contact-para3">Bahirji Apartment Punya Ratna, 6th Ln, S.T.Colony, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416001</p>
+             <a href="https://www.google.com/maps/place/Club+SC/@16.6953167,74.24301,17.91z/data=!4m6!3m5!1s0x3bc101d77e9b7421:0x2bdcd5edf41c1e7c!8m2!3d16.6954538!4d74.2440518!16s%2Fg%2F11t2tfnrmq?entry=ttu">
+               <p class="contact-map mt-2"><span class="lnr lnr-map-marker"></span> Find us on map</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Get in touch</h4>
+             <p>Join the Best GYM in Your Town!</p>
+             <a href="tel:919766997880">
+               <p class="contact-phone mt-2"><span class="lnr lnr-phone-handset"></span>9766997880
+               </p>
+             </a>
+             <a href="mailto:sourabh.chavan499@gmail.com">
+               <p class="contact-mail mt-1"><span class="lnr lnr-envelope"></span>sourabh.chavan499@gmail.com</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Opening hours</h4>
+             <p>We are working on</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Mon - Fri</strong> : 5am to 10pm</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Sat - Sun</strong> : 5am to 9pm
+             </p>
+           </div>
+         </div>
+         <div class="d-grid grid-col-3 grids-content1 bottom-border">
+           <div class="columns copyright-grid align-self">
+             <p class="copy-footer-29">© 2020 Workout. All rights reserved | Designed by <a
+                 href="https://w3layouts.com">Club SC</a></p>
+           </div>
+           <div class="columns text-lg-right social-grid">
+             <ul class="social">
+               <li><a href="https://www.facebook.com/people/Club-SC-by-Fitcoach-Sourabh/100083384317012/" target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+               <li><a href="https://www.instagram.com/fitcoach_sourabh/" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a></li>
+               <li><a href="https://api.whatsapp.com/send?phone=919766997880" target="_blank"><span class="fa fa-whatsapp" aria-hidden="true"></span></a></li>
+			   <li><a href="https://www.youtube.com/@clubsc/featured" target="_blank""><span class="fa fa-youtube" aria-hidden="true"></span></a></li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- move top -->
+   <button onclick="topFunction()" id="movetop" title="Go to top">
+     &#10548;
+   </button>
+   <script>
+     // When the user scrolls down 20px from the top of the document, show the button
+     window.onscroll = function () {
+       scrollFunction()
+     };
+
+     function scrollFunction() {
+       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+         document.getElementById("movetop").style.display = "block";
+       } else {
+         document.getElementById("movetop").style.display = "none";
+       }
+     }
+
+     // When the user clicks on the button, scroll to the top of the document
+     function topFunction() {
+       document.body.scrollTop = 0;
+       document.documentElement.scrollTop = 0;
+     }
+   </script>
+   <!-- /move top -->
+ </section>
+
+
+ <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+ <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+
+ <!-- libhtbox -->
+ <script src="assets/js/lightbox-plus-jquery.min.js"></script>
+
+ <script src="assets/js/owl.carousel.js"></script>
+ <!-- script for banner slider-->
+ <script>
+   $(document).ready(function () {
+     $('.owl-one').owlCarousel({
+       loop: true,
+       margin: 0,
+       nav: false,
+       responsiveClass: true,
+       autoplay: false,
+       autoplayTimeout: 5000,
+       autoplaySpeed: 1000,
+       autoplayHoverPause: false,
+       responsive: {
+         0: {
+           items: 1,
+           nav: false
+         },
+         480: {
+           items: 1,
+           nav: false
+         },
+         667: {
+           items: 1,
+           nav: true
+         },
+         1000: {
+           items: 1,
+           nav: true
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script -->
+
+ <!-- script for tesimonials carousel slider -->
+ <script>
+   $(document).ready(function () {
+     $(".owl-two").owlCarousel({
+       loop: true,
+       margin: 20,
+       nav: false,
+       responsiveClass: true,
+       responsive: {
+         0: {
+           items: 1,
+           nav: false
+         },
+         768: {
+           items: 2,
+           nav: false
+         },
+         1000: {
+           items: 3,
+           nav: false,
+           loop: false
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script for tesimonials carousel slider -->
+
+ <script>
+   $(document).ready(function () {
+     $('.owl-carousel-posts').owlCarousel({
+       loop: true,
+       margin: 0,
+       responsiveClass: true,
+       autoplay: true,
+       autoplayTimeout: 2000,
+       autoplaySpeed: 1000,
+       autoplayHoverPause: true,
+       responsive: {
+         0: {
+           items: 2,
+           nav: false
+         },
+         480: {
+           items: 3,
+           nav: true,
+           margin: 0
+         },
+         736: {
+           items: 4,
+           nav: true,
+           margin: 0
+         },
+         1000: {
+           items: 5,
+           nav: true,
+           margin: 0
+         }
+       }
+     })
+   })
+ </script>
+ <!-- /slider -->
+
+ <!-- script for teams1-->
+ <script>
+   $(document).ready(function () {
+     $('.owl-carousel').owlCarousel({
+       loop: true,
+       margin: 0,
+       responsiveClass: true,
+       responsive: {
+         0: {
+           items: 1,
+           nav: true
+         },
+         400: {
+           items: 2,
+           nav: true,
+           margin: 20
+         },
+         1000: {
+           items: 4,
+           nav: true,
+           loop: true,
+           margin: 25
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script for teams1-->
+
+
+ <!-- stats number counter-->
+ <script src="assets/js/jquery.waypoints.min.js"></script>
+ <script src="assets/js/jquery.countup.js"></script>
+ <script>
+   $('.counter').countUp();
+ </script>
+ <!-- //stats number counter -->
+
+ <!-- disable body scroll which navbar is in active -->
+ <script>
+   $(function () {
+     $('.navbar-toggler').click(function () {
+       $('body').toggleClass('noscroll');
+     })
+   });
+ </script>
+ <!-- disable body scroll which navbar is in active -->
+
+ <!--/MENU-JS-->
+ <script>
+   $(window).on("scroll", function () {
+     var scroll = $(window).scrollTop();
+
+     if (scroll >= 80) {
+       $("#site-header").addClass("nav-fixed");
+     } else {
+       $("#site-header").removeClass("nav-fixed");
+     }
+   });
+
+   //Main navigation Active Class Add Remove
+   $(".navbar-toggler").on("click", function () {
+     $("header").toggleClass("active");
+   });
+   $(document).on("ready", function () {
+     if ($(window).width() > 991) {
+       $("header").removeClass("active");
+     }
+     $(window).on("resize", function () {
+       if ($(window).width() > 991) {
+         $("header").removeClass("active");
+       }
+     });
+   });
+ </script>
+ <!--//MENU-JS-->
+
+ <script src="assets/js/bootstrap.min.js"></script>
+
+ </body>
+
+ </html>
+  </body>
+</html>

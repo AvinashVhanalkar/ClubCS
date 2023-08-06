@@ -1,0 +1,638 @@
+<!-- 
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+  <style>
+  .gallery * {
+  margin: 0;
+}
+
+.gallery-images {
+  display: grid;
+  grid-gap: 30px 20px;
+  grid-template-columns: auto;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 600px) and (max-width: 1099px) {
+    .gallery-images {
+      display: grid;
+      grid-gap: 30px 20px;
+      grid-template-columns: repeat(auto-fill,minmax(calc(50% - 20px), 1fr));
+      grid-auto-flow: dense;
+  }
+}
+
+@media (min-width: 1100px) {
+  .gallery-images {
+    display: grid;
+    grid-gap: 30px 20px;
+    grid-template-columns: repeat(auto-fill,minmax(calc(25% - 20px), 1fr));
+    grid-auto-flow: dense;
+  }
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  grid-column-end: span 1;
+  grid-row-end: span 1;
+  position: relative;
+  transform: scale(1, 1);
+  transition: transform .125s ease;
+  &:hover:not(.gallery-image__preview) {
+    transform: scale(1.02, 1.02);
+  }
+}
+
+.gallery-image__crop {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-image__media {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery-image__caption {
+  display: none;
+}
+
+
+@media (min-width: 600px) and (max-width: 1099px) {
+  .gallery-image__preview {
+    display: block;
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+  }
+}
+
+@media (min-width: 1100px) {
+  .gallery-image__preview {
+    display: block;
+    grid-column-end: span 4;
+    grid-row-end: span 4;
+  }
+}
+
+
+.gallery-image__preview .gallery-image__caption {
+  display: block;
+  font-family: "Inter UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 8px 14px;
+  color: white;
+  background: hsla(0, 0%, 20%, .9);
+  text-align: justify;
+}
+</style>
+<meta charset="utf-8">
+    <title>The CLUB SC</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title></title>
+
+    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+  </head>
+  <body>
+<!--header-->
+<header id="site-header" class="fixed-top" style="background-color:black">
+  <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+	   <a class="navbar-brand" href="#index.html">
+      <img src="assets\images\favi2.jpg"style="height:45px;width:45px" style="margin-right:10px"/>
+  </a>
+          <h1> <a class="navbar-brand" href="index.html">
+                 CLUB SC
+              </a></h1>  
+ 
+          <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+              data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+              <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item @@about__active">
+                      <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item @@services__active">
+                      <a class="nav-link" href="contact.html">Services</a>
+                  </li>
+				   <li class="nav-item @@client__active">
+                      <a class="nav-link" href="client.html">Client</a>
+                  </li>
+				  <li class="nav-item @@classes__active">
+                      <a class="nav-link" href="classes.html">Classes</a>
+                  </li>
+                  <li class="nav-item @@join_us__active">
+                      <a class="nav-link" href="join_us.html">Join_us</a>
+                  </li>
+				  <li class="nav-item @@contact__active">
+                      <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                  <!--/search-right-->
+                  <div class="search-right">
+                      <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+                      <!-- search popup -->
+                      <div id="search" class="pop-overlay">
+                          <div class="popup">
+  
+                              <form action="#" method="GET" class="search-box">
+                                  <input type="search" placeholder="Enter Keyword" name="search" required="required"
+                                      autofocus="">
+                                  <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
+                              </form>
+  
+                          </div>
+                          <a class="close" href="#close">×</a>
+                      </div>
+                      <!-- /search popup -->
+                  </div>
+                  <!--//search-right-->
+              </ul>
+          </div>
+          <!-- toggle switch for light and dark theme -->
+          <div class="mobile-position">
+              <nav class="navigation">
+                  <div class="theme-switch-wrapper">
+                      <label class="theme-switch" for="checkbox">
+                          <input type="checkbox" id="checkbox">
+                          <div class="mode-container">
+                              <i class="gg-sun"></i>
+                              <i class="gg-moon"></i>
+                          </div>
+                      </label>
+                  </div>
+              </nav>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
+      </nav>
+  </div>
+</header>
+<br><br>
+
+<section class="gallery" style="margin-top:30px"><br>
+
+  <center><h2 class="gallery-title">HAPPY CLIENTS</h2></center><br>
+
+
+
+  <div class="gallery-images">
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" src="assets\images\a11.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Conducting research in a biological engineering lab</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image gallery-image--2x2 loaded">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="Ion accelerators play a strong role in magnetic fusion energy research." src="assets\images\a12.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Ion accelerators play a strong role in magnetic fusion energy research.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error." src="assets\images\a13.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="This student, an Olympic medalist, is developing a device that more precisely measures the curvatures of the blades used for speedskates." src="assets\images\a4.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">This student, an Olympic medalist, is developing a device that more precisely measures the curvatures of the blades used for speedskates.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="MIT students have research interests that extend beyond the lab." src="assets\images\a5.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">MIT students have research interests that extend beyond the lab.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="MIT researchers have developed a new way to image proteins and RNA inside neurons of intact brain tissue." src="assets\images\a6.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">MIT researchers have developed a new way to image proteins and RNA inside neurons of intact brain tissue.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="Recent faculty research topics in mechanical engineering include pattern formation, fluid dynamics, and soft condensed matter." src="assets\images\a7.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Recent faculty research topics in mechanical engineering include pattern formation, fluid dynamics, and soft condensed matter.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="A graduate student works on robotic systems that are tasked with removing items from bins and placing them into boxes." src="assets\images\a8.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">A graduate student works on robotic systems that are tasked with removing items from bins and placing them into boxes.</figcaption>
+    </figure>
+    
+    
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" src="assets\images\a9.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Conducting research in a biological engineering lab</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image gallery-image--2x2 loaded">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="Ion accelerators play a strong role in magnetic fusion energy research." src="assets\images\a10.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Ion accelerators play a strong role in magnetic fusion energy research.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error." src="assets\images\a14.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="This student, an Olympic medalist, is developing a device that more precisely measures the curvatures of the blades used for speedskates." src="assets\images\a15.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">This student, an Olympic medalist, is developing a device that more precisely measures the curvatures of the blades used for speedskates.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="MIT students have research interests that extend beyond the lab." src="assets\images\a16.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">MIT students have research interests that extend beyond the lab.</figcaption>
+    </figure>
+    
+    
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" src="assets\images\a17.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Conducting research in a biological engineering lab</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image gallery-image--2x2 loaded">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="Ion accelerators play a strong role in magnetic fusion energy research." src="assets\images\a18.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">Ion accelerators play a strong role in magnetic fusion energy research.</figcaption>
+    </figure>
+
+
+    <figure class="gallery-image">
+      <div class="gallery-image__crop">
+        <img class="gallery-image__media" alt="A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error." src="assets\images\a20.jpg">
+      </div>
+      <figcaption class="gallery-image__caption">A system from CSAIL uses EEG brain signals to detect if a person notices robots making an error.</figcaption>
+    </figure>
+
+</div>
+
+
+</section>
+<br><br>
+ <!-- footers 20 -->
+ <section class="w3l-footers-20">
+   <div class="footers20">
+     <div class="container">
+       <div class="footers20-content">
+         <div class="d-grid grid-col-4 grids-content">
+           <div class="column">
+             <h4>Address</h4>
+             <p class="contact-para3">Bahirji Apartment Punya Ratna, 6th Ln, S.T.Colony, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416001</p>
+             <a href="https://www.google.com/maps/place/Club+SC/@16.6953167,74.24301,17.91z/data=!4m6!3m5!1s0x3bc101d77e9b7421:0x2bdcd5edf41c1e7c!8m2!3d16.6954538!4d74.2440518!16s%2Fg%2F11t2tfnrmq?entry=ttu">
+               <p class="contact-map mt-2"><span class="lnr lnr-map-marker"></span> Find us on map</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Get in touch</h4>
+             <p>Join the Best GYM in Your Town!</p>
+             <a href="tel:9197669 97880">
+               <p class="contact-phone mt-2"><span class="lnr lnr-phone-handset"></span>97669 97880
+               </p>
+             </a>
+             <a href="mailto:sourabh.chavan499@gmail.com">
+               <p class="contact-mail mt-1"><span class="lnr lnr-envelope"></span>sourabh.chavan499@gmail.com</p>
+             </a>
+           </div>
+           <div class="column">
+             <h4>Opening hours</h4>
+             <p>We are working on</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Mon - Fri</strong> : 5am to 10pm</p>
+             <p class="mt-1"><span class="lnr lnr-clock"></span> <strong>Sat - Sun</strong> : 5am to 9pm
+             </p>
+           </div>
+         </div>
+         <div class="d-grid grid-col-3 grids-content1 bottom-border">
+           <div class="columns copyright-grid align-self">
+             <p class="copy-footer-29">© 2020 Workout. All rights reserved | Designed by <a
+                 href="https://w3layouts.com">CLUB SC</a></p>
+           </div>
+           <div class="columns text-lg-right social-grid">
+             <ul class="social">
+               <li><a href="https://www.facebook.com/people/Club-SC-by-Fitcoach-Sourabh/100083384317012/" target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+               <li><a href="https://www.instagram.com/fitcoach_sourabh/" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a></li>
+               <li><a href="https://api.whatsapp.com/send?phone=919766997880" target="_blank"><span class="fa fa-whatsapp" aria-hidden="true"></span></a></li>
+			   <li><a href="https://www.youtube.com/@clubsc/featured" target="_blank""><span class="fa fa-youtube" aria-hidden="true"></span></a></li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- move top -->
+   <button onclick="topFunction()" id="movetop" title="Go to top">
+     &#10548;
+   </button>
+   <script>
+     // When the user scrolls down 20px from the top of the document, show the button
+     window.onscroll = function () {
+       scrollFunction()
+     };
+
+     function scrollFunction() {
+       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+         document.getElementById("movetop").style.display = "block";
+       } else {
+         document.getElementById("movetop").style.display = "none";
+       }
+     }
+
+     // When the user clicks on the button, scroll to the top of the document
+     function topFunction() {
+       document.body.scrollTop = 0;
+       document.documentElement.scrollTop = 0;
+     }
+   </script>
+   <!-- /move top -->
+ </section>
+
+
+ <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+ <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+
+ <!-- libhtbox -->
+ <script src="assets/js/lightbox-plus-jquery.min.js"></script>
+
+ <script src="assets/js/owl.carousel.js"></script>
+ <!-- script for banner slider-->
+ <script>
+   $(document).ready(function () {
+     $('.owl-one').owlCarousel({
+       loop: true,
+       margin: 0,
+       nav: false,
+       responsiveClass: true,
+       autoplay: false,
+       autoplayTimeout: 5000,
+       autoplaySpeed: 1000,
+       autoplayHoverPause: false,
+       responsive: {
+         0: {
+           items: 1,
+           nav: false
+         },
+         480: {
+           items: 1,
+           nav: false
+         },
+         667: {
+           items: 1,
+           nav: true
+         },
+         1000: {
+           items: 1,
+           nav: true
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script -->
+
+ <!-- script for tesimonials carousel slider -->
+ <script>
+   $(document).ready(function () {
+     $(".owl-two").owlCarousel({
+       loop: true,
+       margin: 20,
+       nav: false,
+       responsiveClass: true,
+       responsive: {
+         0: {
+           items: 1,
+           nav: false
+         },
+         768: {
+           items: 2,
+           nav: false
+         },
+         1000: {
+           items: 3,
+           nav: false,
+           loop: false
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script for tesimonials carousel slider -->
+
+ <script>
+   $(document).ready(function () {
+     $('.owl-carousel-posts').owlCarousel({
+       loop: true,
+       margin: 0,
+       responsiveClass: true,
+       autoplay: true,
+       autoplayTimeout: 2000,
+       autoplaySpeed: 1000,
+       autoplayHoverPause: true,
+       responsive: {
+         0: {
+           items: 2,
+           nav: false
+         },
+         480: {
+           items: 3,
+           nav: true,
+           margin: 0
+         },
+         736: {
+           items: 4,
+           nav: true,
+           margin: 0
+         },
+         1000: {
+           items: 5,
+           nav: true,
+           margin: 0
+         }
+       }
+     })
+   })
+ </script>
+ <!-- /slider -->
+
+ <!-- script for teams1-->
+ <script>
+   $(document).ready(function () {
+     $('.owl-carousel').owlCarousel({
+       loop: true,
+       margin: 0,
+       responsiveClass: true,
+       responsive: {
+         0: {
+           items: 1,
+           nav: true
+         },
+         400: {
+           items: 2,
+           nav: true,
+           margin: 20
+         },
+         1000: {
+           items: 4,
+           nav: true,
+           loop: true,
+           margin: 25
+         }
+       }
+     })
+   })
+ </script>
+ <!-- //script for teams1-->
+
+
+ <!-- stats number counter-->
+ <script src="assets/js/jquery.waypoints.min.js"></script>
+ <script src="assets/js/jquery.countup.js"></script>
+ <script>
+   $('.counter').countUp();
+ </script>
+ <!-- //stats number counter -->
+
+ <!-- disable body scroll which navbar is in active -->
+ <script>
+   $(function () {
+     $('.navbar-toggler').click(function () {
+       $('body').toggleClass('noscroll');
+     })
+   });
+ </script>
+ <!-- disable body scroll which navbar is in active -->
+
+ <!--/MENU-JS-->
+ <script>
+   $(window).on("scroll", function () {
+     var scroll = $(window).scrollTop();
+
+     if (scroll >= 80) {
+       $("#site-header").addClass("nav-fixed");
+     } else {
+       $("#site-header").removeClass("nav-fixed");
+     }
+   });
+
+   //Main navigation Active Class Add Remove
+   $(".navbar-toggler").on("click", function () {
+     $("header").toggleClass("active");
+   });
+   $(document).on("ready", function () {
+     if ($(window).width() > 991) {
+       $("header").removeClass("active");
+     }
+     $(window).on("resize", function () {
+       if ($(window).width() > 991) {
+         $("header").removeClass("active");
+       }
+     });
+   });
+ </script>
+ <!--//MENU-JS-->
+
+ <script src="assets/js/bootstrap.min.js"></script>
+ 
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+ </body>
+
+ </html>
